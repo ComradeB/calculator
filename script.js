@@ -25,7 +25,7 @@ for (const button of numberButtons) {
         || runningTotal[runningTotal.length-1] === '-'
         || runningTotal[runningTotal.length-1] === '*'
         || runningTotal[runningTotal.length-1] === '/') {
-            return currentString.textContent = `${button.textContent}`, runningTotal.push(button.textContent)
+            return currentString.textContent = replace(currentString.textContent.length-1, `${button.textContent}`), runningTotal.push(button.textContent)
         }
         else {
             currentString.textContent += `${button.textContent}`
@@ -71,7 +71,7 @@ addButton.addEventListener('click', () => {
     || runningTotal[runningTotal.length-1] === '*'
     || runningTotal[runningTotal.length-1] === '/') {
         runningTotal[runningTotal.length-1] = '+'
-        previousString.textContent = previousString.textContent.replace(previousString.textContent.charAt(previousString.textContent.length-1),'+')
+    previousString.textContent = previousString.textContent.replace(/[-*/]$/,'+')
     }
 })
 
@@ -80,7 +80,7 @@ subtractButton.addEventListener('click', () => {
     || runningTotal[runningTotal.length-1] === '*'
     || runningTotal[runningTotal.length-1] === '/') {
         runningTotal[runningTotal.length-1] = '-'
-        previousString.textContent = previousString.textContent.replace(previousString.textContent.charAt(previousString.textContent.length-1),'-')
+    previousString.textContent = previousString.textContent.replace(/[+*/]$/,'-')
     }
 })
 
@@ -89,7 +89,7 @@ multiplyButton.addEventListener('click', () => {
     || runningTotal[runningTotal.length-1] === '+'
     || runningTotal[runningTotal.length-1] === '/') {
         runningTotal[runningTotal.length-1] = '*'
-        previousString.textContent = previousString.textContent.replace(previousString.textContent.charAt(previousString.textContent.length-1),'*')
+        previousString.textContent = previousString.textContent.replace(/[-+/]$/,'*')
     }
 })
 
@@ -98,7 +98,7 @@ divideButton.addEventListener('click', () => {
     || runningTotal[runningTotal.length-1] === '*'
     || runningTotal[runningTotal.length-1] === '/') {
         runningTotal[runningTotal.length-1] = '/'
-        previousString.textContent = previousString.textContent.replace(previousString.textContent.charAt(previousString.textContent.length-1),'/')
+        previousString.textContent = previousString.textContent.replace(/[-+*]$/,'/')
     }
 })
 
