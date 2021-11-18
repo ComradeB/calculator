@@ -47,7 +47,7 @@ for (const operator of operatorButtons) {
 
 flipButton.addEventListener('click', () => {
     currentString.textContent*=-1
-    runningTotal.unshift('-1','*')
+    runningTotal.unshift('-1','x')
 })
 
 percentButton.addEventListener('click', () => {
@@ -68,7 +68,7 @@ decimalButton.addEventListener('click', () => {
 
 addButton.addEventListener('click', () => {
     if (runningTotal[runningTotal.length-1] === '-'
-    || runningTotal[runningTotal.length-1] === '*'
+    || runningTotal[runningTotal.length-1] === 'x'
     || runningTotal[runningTotal.length-1] === '/') {
         runningTotal[runningTotal.length-1] = '+'
     previousString.textContent = previousString.textContent.replace(/[-x/]$/,'+')
@@ -77,7 +77,7 @@ addButton.addEventListener('click', () => {
 
 subtractButton.addEventListener('click', () => {
     if (runningTotal[runningTotal.length-1] === '+'
-    || runningTotal[runningTotal.length-1] === '*'
+    || runningTotal[runningTotal.length-1] === 'x'
     || runningTotal[runningTotal.length-1] === '/') {
         runningTotal[runningTotal.length-1] = '-'
     previousString.textContent = previousString.textContent.replace(/[+x/]$/,'-')
@@ -88,7 +88,7 @@ multiplyButton.addEventListener('click', () => {
     if (runningTotal[runningTotal.length-1] === '-'
     || runningTotal[runningTotal.length-1] === '+'
     || runningTotal[runningTotal.length-1] === '/') {
-        runningTotal[runningTotal.length-1] = '*'
+        runningTotal[runningTotal.length-1] = 'x'
         previousString.textContent = previousString.textContent.replace(/[-+/]$/,'x')
     }
 })
