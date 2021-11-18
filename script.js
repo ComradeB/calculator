@@ -96,7 +96,7 @@ multiplyButton.addEventListener('click', () => {
 divideButton.addEventListener('click', () => {
     if (runningTotal[runningTotal.length-1] === '-'
     || runningTotal[runningTotal.length-1] === 'x'
-    || runningTotal[runningTotal.length-1] === '/') {
+    || runningTotal[runningTotal.length-1] === '+') {
         runningTotal[runningTotal.length-1] = '/'
         previousString.textContent = previousString.textContent.replace(/[-+x]$/,'/')
     }
