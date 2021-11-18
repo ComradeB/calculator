@@ -112,23 +112,18 @@ equalsButton.addEventListener('click', () => {
     && runningTotal[runningTotal.length-1] === '0') return currentString.textContent = 'Nice try.', runningTotal.push('Nice try.')
     else {
         if (previousString.textContent.includes('x')) {
-            previousString.textContent = previousString.textContent.replace('x','')
             currentString.textContent = parseFloat(currentString.textContent) * parseFloat(previousString.textContent)
             previousString.textContent = ''
         }
         else if (previousString.textContent.includes('/')) {
-            previousString.textContent = previousString.textContent.replace('/','')
             currentString.textContent = parseFloat(previousString.textContent) / parseFloat(currentString.textContent)
             previousString.textContent = ''
         }
         else if (previousString.textContent.includes('+')) {
-            previousString.textContent = previousString.textContent.replace('+','')
             currentString.textContent = parseFloat(currentString.textContent) + parseFloat(previousString.textContent)
             previousString.textContent = ''
         }
         else if (previousString.textContent.includes('-')) {
-            previousString.textContent = previousString.textContent.replace('-','')
-            previousString.textContent = '-'.concat(previousString.textContent)
             currentString.textContent = parseFloat(previousString.textContent) - parseFloat(currentString.textContent)
             previousString.textContent = ''
         }
