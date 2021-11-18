@@ -23,7 +23,7 @@ for (const button of numberButtons) {
         }
         else if (runningTotal[runningTotal.length-1] === '+'
         || runningTotal[runningTotal.length-1] === '-'
-        || runningTotal[runningTotal.length-1] === '*'
+        || runningTotal[runningTotal.length-1] === 'x'
         || runningTotal[runningTotal.length-1] === '/') {
             return currentString.textContent = replace(currentString.textContent.length-1, `${button.textContent}`), runningTotal.push(button.textContent)
         }
@@ -71,7 +71,7 @@ addButton.addEventListener('click', () => {
     || runningTotal[runningTotal.length-1] === '*'
     || runningTotal[runningTotal.length-1] === '/') {
         runningTotal[runningTotal.length-1] = '+'
-    previousString.textContent = previousString.textContent.replace(/[-*/]$/,'+')
+    previousString.textContent = previousString.textContent.replace(/[-x/]$/,'+')
     }
 })
 
@@ -80,7 +80,7 @@ subtractButton.addEventListener('click', () => {
     || runningTotal[runningTotal.length-1] === '*'
     || runningTotal[runningTotal.length-1] === '/') {
         runningTotal[runningTotal.length-1] = '-'
-    previousString.textContent = previousString.textContent.replace(/[+*/]$/,'-')
+    previousString.textContent = previousString.textContent.replace(/[+x/]$/,'-')
     }
 })
 
@@ -89,7 +89,7 @@ multiplyButton.addEventListener('click', () => {
     || runningTotal[runningTotal.length-1] === '+'
     || runningTotal[runningTotal.length-1] === '/') {
         runningTotal[runningTotal.length-1] = '*'
-        previousString.textContent = previousString.textContent.replace(/[-+/]$/,'*')
+        previousString.textContent = previousString.textContent.replace(/[-+/]$/,'x')
     }
 })
 
@@ -98,7 +98,7 @@ divideButton.addEventListener('click', () => {
     || runningTotal[runningTotal.length-1] === '*'
     || runningTotal[runningTotal.length-1] === '/') {
         runningTotal[runningTotal.length-1] = '/'
-        previousString.textContent = previousString.textContent.replace(/[-+*]$/,'/')
+        previousString.textContent = previousString.textContent.replace(/[-+x]$/,'/')
     }
 })
 
@@ -111,8 +111,8 @@ equalsButton.addEventListener('click', () => {
     else if (runningTotal[runningTotal.length-2] === '/'
     && runningTotal[runningTotal.length-1] === '0') return currentString.textContent = 'Nice try.', runningTotal.push('Nice try.')
     else {
-        if (previousString.textContent.includes('*')) {
-            previousString.textContent = previousString.textContent.replace('*','')
+        if (previousString.textContent.includes('x')) {
+            previousString.textContent = previousString.textContent.replace('x','')
             currentString.textContent = parseFloat(currentString.textContent) * parseFloat(previousString.textContent)
             previousString.textContent = ''
         }

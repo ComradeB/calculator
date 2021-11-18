@@ -1,31 +1,45 @@
 *,*::before,*::after {
   box-sizing: border-box;
   font-size: 62.5%;
-  font-family: sans-serif;
+  font-family: 'Quicksand', sans-serif;
   padding: 0;
   margin: 0;
 }
 
+body {
+  display: grid;
+  place-items: center;
+  margin-top: 5%;
+}
+
 .calculator {
   display: grid;
-  grid-template: 1.5fr repeat(5, 1fr) / repeat(4, 1fr);
+  grid-template: 1.3fr repeat(5, 1fr) / repeat(4, 1fr);
   width: 360px;
   height: 480px;
 }
 
 .display {
   grid-column: 1 / -1;
-  background-color: #1c1c1c;
-  border-radius: 2em 2em 0 0;
+  background-color: rgb(200, 200, 200);
+  border-radius: 5em 5em 0 0;
+  border: 0 solid black;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  color:white;
+  color:black;
+}
+
+.display:hover {
+  background-color: black;
+  color: white;
+  transition: all linear 0.3s;
 }
 
 .previous {
   flex: 1;
-  font-size: 2rem;
+  font-size: 1.75rem;
+  opacity: 85%;
   margin-top: 5%;
   margin-right: 5%;
 }
@@ -41,30 +55,31 @@
 }
 
 .divide,.multiply,.subtract,.add,.equals {
-  background-color: #FF9500;
-  opacity: 95%;
+  background-color: rgb(225, 225, 225);
 }
 
 .all-clear,.pos-to-neg,.percent {
-  background-color: #505050;
+  background-color: rgb(240, 240, 240);
+  color: black;
 }
 
 .number, .zero, .decimal {
-  background-color: rgba(25, 25, 25, 0.842);
-  opacity: 75%;
+  background-color: white;
 }
 
 button, .display {
-  color: white;
+  color: black;
+  border: 0.1px solid black;
 }
 
 button {
   font-size: 3rem;
-  border: 0.5px solid black;
 }
 
 button:hover {
-  transition: ease-in-out 1s;
+  background-color: black;
+  color: white;
+  transition: linear 0.3s;
 }
 
 .equals {
